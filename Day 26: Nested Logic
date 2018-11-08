@@ -1,0 +1,17 @@
+actualdate = list(map(int,input().split()))
+exceptedate = list(map(int,input().split()))
+if actualdate[2]==exceptedate[2]:
+    if actualdate[1]==exceptedate[1]:
+        if actualdate[0]<=exceptedate[0]:
+            fine =0
+        else:
+            fine = 15*(actualdate[0]-exceptedate[0])
+    elif actualdate[1]>exceptedate[1]:
+        fine = 500*(actualdate[1]-exceptedate[1])
+    else:
+        fine = 0
+elif actualdate[2]>exceptedate[2]:
+    fine = 10000
+else:
+    fine = 0
+print(fine)
