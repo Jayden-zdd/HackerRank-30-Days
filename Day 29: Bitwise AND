@@ -1,0 +1,37 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+
+if __name__ == '__main__':
+    t = int(input())
+    
+    for t_itr in range(t):
+        result = []
+        nk = input().split()
+
+        n = int(nk[0])
+
+        k = int(nk[1])
+        
+        # for i in range(1,n):
+        #     for j in range(i+1,n+1):
+        #         Bitwiseand = i&j
+        #         if Bitwiseand<k:
+        #             result.append(Bitwiseand)
+        # print(max(result))        
+        print(k-1 if ((k-1) | k) <= n else k-2)
+        #1.When k is ODD , k-1 is EVEN .In binary form: k-1 can always be reached by (k-1) & k.
+        #That is , ((k-1) | k) is always k. And ((k-1) | k) <= n is always TRUE.
+        #2.When k is EVEN , k-1 is ODD , k-1 can only be reached if and only if ((k-1) | k) <= n is TRUE
+        #In binary form:
+#     k   = 10110
+#     k-1 = 10101
+#     pos = 10111
+#     k-1 == (k-1) & pos
+# You can get k-1 if pos <= n is TRUE. And you can get pos by ((k-1) | (k-1+1)) , that is , ((k-1) | k). Otherwise , you just need to follow the process above when k is ODD (because k-1 is ODD) , then you get the answer k-2.
